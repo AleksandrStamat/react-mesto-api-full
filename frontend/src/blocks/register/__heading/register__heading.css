@@ -1,0 +1,15 @@
+.register__heading {
+  font-family: "Inter", Arial, sans-serif;
+  font-style: normal;
+  font-weight: 900;
+  font-size: 1.5rem;
+  line-height: 1.8125rem;
+  margin: 0;
+}
+
+@media screen and (max-width: 424px) {
+  .register__heading {
+    font-size: 1.25rem;
+    line-height: 1.5rem;
+  }
+}

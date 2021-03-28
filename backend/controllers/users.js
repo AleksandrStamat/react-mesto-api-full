@@ -46,8 +46,8 @@ const createUser = (req, res, next) => {
         });
       } else next(err);
     })
-    .then((user) => res.send({
-      message: `Пользователь успешно зарегистрирован`,
+    .then(() => res.send({
+      message: 'Пользователь успешно зарегистрирован',
     }))
     .catch(next);
 };

@@ -1,0 +1,19 @@
+.popup-status__container {
+  position: relative;
+  width: 430px;
+  height: 330px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  background: #ffffff;
+  box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.15);
+  border-radius: 10px;
+}
+
+@media screen and (min-width: 320px) and (max-width: 560px) {
+  .popup-status__container {
+    width: 280px;
+    height: 308px;
+  }
+}

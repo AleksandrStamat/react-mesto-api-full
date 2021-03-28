@@ -1,0 +1,9 @@
+.element__position {
+  display: flex;
+  margin: 0 16px;
+  min-width: 246px;
+  flex-direction: row;
+  justify-content: space-between;
+  height: 76px;
+  align-items: center;
+}

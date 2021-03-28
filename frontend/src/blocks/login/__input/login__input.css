@@ -1,0 +1,25 @@
+.login__input {
+  border: 0;
+  border-bottom: 2px solid #ccc;
+  padding: 0;
+  box-sizing: border-box;
+  margin-bottom: 30px;
+  font-family: "Inter", Arial, sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 0.875rem;
+  line-height: 1.0625rem;
+  color: #fff;
+  min-height: 28px;
+  width: 100%;
+  background-color: transparent;
+}
+
+.login__input::placeholder {
+  color: #ccc;
+  font-family: "Inter", Arial, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 0.875rem;
+  line-height: 1.0625rem;
+}

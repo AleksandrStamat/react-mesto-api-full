@@ -1,0 +1,18 @@
+@import url(../element/__foto/element__foto.css);
+@import url(../element/__position/element__position.css);
+@import url(../element/__text/element__text.css);
+@import url(../element/__like/element__like.css);
+@import url(../element/__trash/element__trash.css);
+@import url(../element/__like-count/element__like-count.css);
+@import url(../element/__like-content/element__like-content.css);
+.element {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  width: 282px;
+  height: 361px;
+  background: #ffffff;
+  border-radius: 10px;
+  display: grid;
+  align-items: center;
+}

@@ -1,0 +1,4 @@
+.popup__span_active {
+  opacity: 1;
+  color: #ff0000;
+}

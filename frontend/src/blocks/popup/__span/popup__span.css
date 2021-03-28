@@ -1,0 +1,8 @@
+.popup__span {
+  height: 15px;
+  font-size: 12px;
+  line-height: 15px;
+  color: #000000;
+  opacity: 1;
+  display: block;
+}

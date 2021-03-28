@@ -1,0 +1,20 @@
+.profile__edit-avatar {
+  border: none;
+  border-radius: 50%;
+  background-color: rgba(0, 0, 0);
+  background-repeat: no-repeat;
+  background-position: center;
+  cursor: pointer;
+  background-image: url(../../../images/profile/edit.svg);
+  width: 120px;
+  height: 120px;
+  z-index: 1;
+  opacity: 2;
+  padding: 0;
+  margin-right: 20px;
+}
+@media screen and (max-width: 900px) {
+  .profile__edit-avatar {
+    margin-right: 0;
+  }
+}

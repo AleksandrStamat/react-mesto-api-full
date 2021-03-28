@@ -3,7 +3,7 @@ const NotFoundError = require('../errors/NotFoundError');
 const BadRequestError = require('../errors/BadRequestError');
 const ForbiddenError = require('../errors/ForbiddenError');
 
-const getCards = (req, res, next) => Card.find({})
+const getCards = (req, res, next) => Card.find({}).sort({ _id: -1 })
   .populate('user')
   .then((cards) => {
     if (!cards) {
@@ -60,7 +60,8 @@ const likeCard = (req, res, next) => {
     { new: true },
   )
     .orFail(new NotFoundError({ message: 'Карточка не найдена' }))
-    .then((card) => res.send({ data: card }))
+    .then((card) => res.send(card))
+
     .catch(next);
 };
 
@@ -71,7 +72,7 @@ const dislikeCard = (req, res, next) => {
     { new: true },
   )
     .orFail(new NotFoundError({ message: 'Карточка не найдена' }))
-    .then((card) => res.send({ data: card }))
+    .then((card) => res.send(card))
     .catch(next);
 };
 

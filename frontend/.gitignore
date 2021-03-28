@@ -1,0 +1,17 @@
+# Dependency directory
+/node_modules
+/.pnp
+.pnp.js
+
+# Optional npm cache directory
+.npm
+
+# production
+/build
+
+# Optional REPL history
+.DS_Store
+.idea
+.vscode
+.history
+.env

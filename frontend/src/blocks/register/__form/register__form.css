@@ -1,0 +1,12 @@
+.register__form {
+  padding-top: 50px;
+  padding-bottom: 15px;
+  box-sizing: border-box;
+}
+
+@media screen and (max-width: 424px) {
+  .register__form {
+    padding-top: 40px;
+    padding-bottom: 20px;
+  }
+}

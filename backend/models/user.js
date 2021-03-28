@@ -1,7 +1,7 @@
-const mongoose = require("mongoose");
-const validator = require("validator");
-const bcrypt = require("bcryptjs");
-const AuthorizationError = require("../errors/AuthorizationError");
+const mongoose = require('mongoose');
+const validator = require('validator');
+const bcrypt = require('bcryptjs');
+const AuthorizationError = require('../errors/AuthorizationError');
 
 const userSchema = new mongoose.Schema({
   name: {
@@ -24,7 +24,7 @@ const userSchema = new mongoose.Schema({
         const regex = /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\\+~#=]+\.[a-zA-Z0-9()]+([-a-zA-Z0-9()@:%_\\+.~#?&/=#]*)/;
         return regex.test(v);
       },
-      message: "Введена неверная ссылка",
+      message: 'Введена неверная ссылка',
     },
   },
   email: {
@@ -35,7 +35,7 @@ const userSchema = new mongoose.Schema({
       validator(email) {
         return validator.isEmail(email);
       },
-      message: "Введён некорректный email",
+      message: 'Введён некорректный email',
     },
   },
   password: {
@@ -48,17 +48,17 @@ const userSchema = new mongoose.Schema({
 
 userSchema.statics.findUserByCredentials = function (email, password) {
   return this.findOne({ email })
-    .select("+password")
+    .select('+password')
     .then((user) => {
       if (!user) {
         throw new AuthorizationError({
-          message: "Неправильные email или пароль",
+          message: 'Неправильные email или пароль',
         });
       }
       return bcrypt.compare(password, user.password).then((matched) => {
         if (!matched) {
           throw new AuthorizationError({
-            message: "Неправильные email или пароль",
+            message: 'Неправильные email или пароль',
           });
         }
         return user;
@@ -66,4 +66,4 @@ userSchema.statics.findUserByCredentials = function (email, password) {
     });
 };
 
-module.exports = mongoose.model("user", userSchema);
+module.exports = mongoose.model('user', userSchema);

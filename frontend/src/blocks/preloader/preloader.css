@@ -1,0 +1,68 @@
+.preloader {
+  display: none;
+  position: absolute;
+  top: 40%;
+  left: 45%;
+  width: 150px;
+  height: 150px;
+  border: 2px solid #000;
+  box-shadow: 0 -2px 2px rgba(0, 0, 0, 0.2);
+  border-bottom: 2px solid #fff;
+  border-radius: 50%;
+  animation: preloader 3s linear infinite;
+}
+
+.preloader:before {
+  content: '';
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  bottom: 10px;
+  right: 10px;
+  border: 2px solid #000;
+  box-shadow: 0 -2px 2px rgba(0, 0, 0, 0.2);
+  border-bottom: 2px solid #fff;
+  border-radius: 50%;
+  animation: preloader 2s linear infinite;
+}
+
+.preloader:after {
+  content: '';
+  position: absolute;
+  top: 22px;
+  left: 22px;
+  bottom: 22px;
+  right: 22px;
+  border: 2px solid #000;
+  box-shadow: 0 -2px 2px rgba(0, 0, 0, 0.2);
+  border-bottom: 2px solid #fff;
+  border-radius: 50%;
+  animation: preloader 1s linear infinite;
+}
+
+@keyframes preloader {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@media screen and (min-width: 551px) and (max-width: 900px) {
+  .preloader {
+    top: 40%;
+    left: 42%;
+  }
+}
+@media screen and (min-width: 451px) and (max-width: 550px) {
+  .preloader {
+    top: 40%;
+    left: 35%;
+  }
+}
+@media screen and (min-width: 320px) and (max-width: 450px) {
+  .preloader {
+    top: 40%;
+    left: 33%;
+  }
+}

@@ -1,0 +1,22 @@
+.register__link {
+  color: #fff;
+  font-family: "Inter", Arial, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 0.875rem;
+  line-height: 1.0625rem;
+  text-decoration: none;
+  text-align: center;
+}
+
+.register__link:hover {
+  opacity: 0.6;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 424px) {
+  .register__link {
+    font-size: 0.75rem;
+    line-height: 0.9375rem;
+  }
+}

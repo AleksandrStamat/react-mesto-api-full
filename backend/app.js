@@ -3,19 +3,16 @@ const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const { errors } = require('celebrate');
-const cookieParser = require('cookie-parser');
 const cors = require('cors');
 const rateLimit = require('express-rate-limit');
 const auth = require('./middlewares/auth');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
 const { login, createUser } = require('./controllers/users');
 const { validateUser, validateLogin } = require('./middlewares/validation');
-require('dotenv').config();
 
 const { PORT = 3000 } = process.env;
 
 const app = express();
-app.use(cookieParser());
 
 const limiter = rateLimit({
   windowMs: 15 * 60 * 1000,
@@ -33,7 +30,7 @@ mongoose
     useNewUrlParser: true,
     useCreateIndex: true,
     useFindAndModify: false,
-    autoIndex: true
+    autoIndex: true,
   })
   .then(() => console.log('Connected to DB'));
 

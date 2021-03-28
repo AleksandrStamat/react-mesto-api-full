@@ -1,0 +1,15 @@
+.popup-image__text {
+  padding-top: 10px;
+  margin: 0;
+  font-family: 'Inter', ‘Arial’, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 17px;
+}
+@media screen and (max-width: 560px) {
+  .popup-image__text {
+    font-size: 12px;
+    line-height: 15px;
+  }
+}
