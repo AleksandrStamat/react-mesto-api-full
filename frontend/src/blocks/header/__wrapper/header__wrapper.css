@@ -17,13 +17,6 @@
 
 @media (max-width: 767px) {
   .header__wrapper {
-    width: calc(100% - 80px * 2);
-    padding: 28px 0 31.6px;
-  }
-}
-
-@media (max-width: 425px) {
-  .header__wrapper {
     width: 100%;
   }
 }

@@ -227,7 +227,6 @@ function App() {
 
   return (
     <CurrentUserContext.Provider value={currentUser}>
-      <div className='root'>
         <div className='page' onKeyUp={closePopupsByEsc}>
           <Header loggedOut={handleLogout} loggedIn={loggedIn} />
           {isSiteLoading ? (
@@ -289,7 +288,6 @@ function App() {
             onClose={closeAllPopups}
           />
         </div>
-      </div>
     </CurrentUserContext.Provider>
   );
 }
