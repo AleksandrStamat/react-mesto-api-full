@@ -48,8 +48,8 @@ function Main(props) {
         </button>
       </section>
       <section className='elements' id='elements'>
-        {cards &&
-          cards.map((card) => (
+        {cards
+          && cards.map((card) => (
             <Card
               key={card._id}
               card={card}

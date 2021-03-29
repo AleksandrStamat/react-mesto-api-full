@@ -4,10 +4,12 @@ import trash from '../images/card/trash.svg';
 
 function Card(props) {
   const currentUser = useContext(CurrentUserContext);
-  const { card, onCardClick, onCardLike, onCardDelete } = props;
+  const {
+    card, onCardClick, onCardLike, onCardDelete,
+  } = props;
   const { name, link, likes } = card;
   const isOwn = card.owner === currentUser._id;
-  const status = card.likes.some(i => i === currentUser._id);
+  const status = card.likes.some((i) => i === currentUser._id);
 
   const cardLikeButtonClassName = `element__like button ${
     status && 'element__like_active'

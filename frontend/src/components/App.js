@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { Route, Switch, useHistory, withRouter } from 'react-router-dom';
+import {
+  Route, Switch, useHistory, withRouter,
+} from 'react-router-dom';
 import '../index.css';
 import { CurrentUserContext } from '../contexts/CurrentUserContext';
 import { api } from '../utils/utils';
@@ -37,7 +39,7 @@ function App() {
     link: '',
     name: '',
   });
-  //Проверить токен
+  // Проверить токен
   useEffect(() => {
     const jwt = localStorage.getItem('jwt');
     if (jwt) {
@@ -67,7 +69,7 @@ function App() {
       .catch((err) => console.log(`Ошибка при загрузке данных: ${err}`))
       .finally(() => setSiteLoading(false));
   }
-  //Обновление данных профиля
+  // Обновление данных профиля
   function handleUpdateUser(data) {
     const token = localStorage.getItem('jwt');
     setLoading(true);
@@ -81,7 +83,7 @@ function App() {
       .catch((err) => console.log(`Ошибка при обновлении данных: ${err}`));
   }
 
-  //Обновление аватара
+  // Обновление аватара
   function handleUpdateAvatar(data) {
     const token = localStorage.getItem('jwt');
     setLoading(true);
@@ -95,7 +97,7 @@ function App() {
       .catch((err) => console.log(`Ошибка при обновлении аватара: ${err}`));
   }
 
-  //Добавление карточки
+  // Добавление карточки
   function handleAddPlace({ name, link }) {
     const token = localStorage.getItem('jwt');
     setLoading(true);
@@ -108,16 +110,14 @@ function App() {
       })
       .catch((err) => console.log(`Ошибка при добавлении карточки: ${err}`));
   }
-  //Удалить карточку после подтверждения
+  // Удалить карточку после подтверждения
   function handleConfirm() {
     const token = localStorage.getItem('jwt');
     setLoading(true);
     api
       .deleteCard(cardDelete._id, token)
       .then(() => {
-        const newCards = cards.filter((card) => {
-          return card !== cardDelete;
-        });
+        const newCards = cards.filter((card) => card !== cardDelete);
         closeAllPopups();
         setCards(newCards);
         setTimeout(() => setLoading(false), 200);
@@ -145,27 +145,27 @@ function App() {
       .catch((err) => console.log(`Ошибка при загрузке лайков: ${err}`));
   }
 
-  //Открыть AvatarPopup
+  // Открыть AvatarPopup
   function handleEditAvatarClick() {
     setEditAvatarPopupOpen(true);
   }
 
-  //Открыть EditProfilePopup
+  // Открыть EditProfilePopup
   function handleEditProfileClick() {
     setEditProfilePopupOpen(true);
   }
 
-  //Открыть AddPlacePopup
+  // Открыть AddPlacePopup
   function handleAddPlaceClick() {
     setAddPlacePopupOpen(true);
   }
 
-  //Открыть увеличенное фото
+  // Открыть увеличенное фото
   function handleCardClick({ link, name }) {
     setSelectedCard({ isImageOpen: true, link, name });
   }
 
-  //Закрыть все попапы
+  // Закрыть все попапы
   function closeAllPopups() {
     setEditProfilePopupOpen(false);
     setEditAvatarPopupOpen(false);
@@ -178,7 +178,7 @@ function App() {
       name: '',
     });
   }
-  //Вход
+  // Вход
   function handleLogin(email, password) {
     auth
       .authorization(email, password)
@@ -195,12 +195,12 @@ function App() {
         setStatus(false);
       });
   }
-  //Выход
+  // Выход
   function handleLogout() {
     localStorage.removeItem('jwt');
     setLoggedIn(false);
   }
-  //Регистрация
+  // Регистрация
   function handleRegister(email, password) {
     auth
       .register(email, password)
@@ -218,7 +218,7 @@ function App() {
       });
   }
 
-  //закрытие по esc
+  // закрытие по esc
   const closePopupsByEsc = (e) => {
     if (e.key === 'Escape') {
       closeAllPopups();

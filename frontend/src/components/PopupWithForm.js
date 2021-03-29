@@ -13,7 +13,7 @@ function PopupWithForm(props) {
 
   return (
     <div
-      className={`popup ${name} ` + (isOpen ? 'popup_opened' : '')}
+      className={`popup ${name} ${isOpen ? 'popup_opened' : ''}`}
       onClick={(e) => {
         if (e.target === e.currentTarget) {
           onClose();

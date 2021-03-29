@@ -4,7 +4,9 @@ import { CurrentUserContext } from '../contexts/CurrentUserContext.js';
 
 function EditProfilePopup(props) {
   const currentUser = useContext(CurrentUserContext);
-  const { isOpen, onClose, onUpdateUser, isLoading } = props;
+  const {
+    isOpen, onClose, onUpdateUser, isLoading,
+  } = props;
   const [name, setName] = useState('');
   const [hobby, setHobby] = useState('');
 

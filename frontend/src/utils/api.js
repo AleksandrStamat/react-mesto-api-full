@@ -2,6 +2,7 @@ export default class Api {
   constructor({ baseUrl }) {
     this._url = baseUrl;
   }
+
   _erorrCheck(res) {
     if (res.ok) {
       return res.json();
@@ -17,6 +18,7 @@ export default class Api {
       },
     }).then(this._erorrCheck);
   }
+
   getProfile(token) {
     return fetch(`${this._url}/users/me`, {
       headers: {
@@ -25,9 +27,11 @@ export default class Api {
       },
     }).then(this._erorrCheck);
   }
+
   getAllNeededData(token) {
     return Promise.all([this.getProfile(token), this.getInitialCards(token)]);
   }
+
   changeProfile(data, token) {
     return fetch(`${this._url}/users/me`, {
       method: 'PATCH',
@@ -49,6 +53,7 @@ export default class Api {
       body: JSON.stringify(data),
     }).then(this._erorrCheck);
   }
+
   addCard({ name, link }, token) {
     return fetch(`${this._url}/cards`, {
       method: 'POST',
@@ -57,11 +62,12 @@ export default class Api {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        name: name,
-        link: link,
+        name,
+        link,
       }),
     }).then(this._erorrCheck);
   }
+
   deleteCard(id, token) {
     return fetch(`${this._url}/cards/${id}`, {
       method: 'DELETE',
@@ -71,6 +77,7 @@ export default class Api {
       },
     }).then(this._erorrCheck);
   }
+
   toggleLike(id, status, token) {
     return fetch(`${this._url}/cards/${id}/likes`, {
       method: status ? 'DELETE' : 'PUT',

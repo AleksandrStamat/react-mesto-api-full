@@ -2,7 +2,9 @@ import React from 'react';
 import PopupWithForm from './PopupWithForm';
 
 function ConfirmPopup(props) {
-  const { isOpen, onClose, onConfirmDelete, isLoading } = props;
+  const {
+    isOpen, onClose, onConfirmDelete, isLoading,
+  } = props;
   function handleSubmit(evt) {
     evt.preventDefault();
     onConfirmDelete();
