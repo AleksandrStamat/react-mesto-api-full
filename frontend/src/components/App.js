@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import {
-  Route, Switch, useHistory, withRouter,
-} from 'react-router-dom';
+import { Route, Switch, useHistory, withRouter } from 'react-router-dom';
 import '../index.css';
 import { CurrentUserContext } from '../contexts/CurrentUserContext';
 import { api } from '../utils/utils';
@@ -67,7 +65,7 @@ function App() {
         history.push('/');
       })
       .catch((err) => console.log(`Ошибка при загрузке данных: ${err}`))
-      .finally(() => setSiteLoading(false));
+      .finally(() => setTimeout(() => setSiteLoading(false), 1000));
   }
   // Обновление данных профиля
   function handleUpdateUser(data) {
@@ -227,67 +225,67 @@ function App() {
 
   return (
     <CurrentUserContext.Provider value={currentUser}>
-        <div className='page' onKeyUp={closePopupsByEsc}>
-          <Header loggedOut={handleLogout} loggedIn={loggedIn} />
-          {isSiteLoading ? (
-            <Preloader />
-          ) : (
-            <>
-              <Switch>
-                <Route path='/signin'>
-                  <Login handleLogin={handleLogin} />
-                </Route>
-                <Route path='/signup'>
-                  <Register handleRegister={handleRegister} />
-                </Route>
-                <ProtectedRoute
-                  exact
-                  path='/'
-                  loggedIn={loggedIn}
-                  component={Main}
-                  onEditProfile={handleEditProfileClick}
-                  onAddPlace={handleAddPlaceClick}
-                  onEditAvatar={handleEditAvatarClick}
-                  onCardClick={handleCardClick}
-                  onCardLike={handleCardLike}
-                  onCardDelete={handleCardDelete}
-                  cards={cards}
-                />
-              </Switch>
-              <Footer />
-            </>
-          )}
-          <EditProfilePopup
-            isOpen={isEditProfilePopupOpen}
-            onClose={closeAllPopups}
-            onUpdateUser={handleUpdateUser}
-            isLoading={isLoading}
-          />
-          <AddPlacePopup
-            isOpen={isAddPlacePopupOpen}
-            onClose={closeAllPopups}
-            onAddPlace={handleAddPlace}
-            isLoading={isLoading}
-          />
-          <ConfirmPopup
-            isOpen={isConfirmPopupOpen}
-            onClose={closeAllPopups}
-            onConfirmDelete={handleConfirm}
-            isLoading={isLoading}
-          />
-          <EditAvatarPopup
-            isOpen={isEditAvatarPopupOpen}
-            onClose={closeAllPopups}
-            onUpdateAvatar={handleUpdateAvatar}
-            isLoading={isLoading}
-          />
-          <ImagePopup image={selectedCard} onClose={closeAllPopups} />
-          <InfoTooltip
-            status={status}
-            isOpen={isInfoTooltipOpen}
-            onClose={closeAllPopups}
-          />
-        </div>
+      <div className='page' onKeyUp={closePopupsByEsc}>
+        <Header loggedOut={handleLogout} loggedIn={loggedIn} />
+        {isSiteLoading ? (
+          <Preloader />
+        ) : (
+          <>
+            <Switch>
+              <Route path='/signin'>
+                <Login handleLogin={handleLogin} />
+              </Route>
+              <Route path='/signup'>
+                <Register handleRegister={handleRegister} />
+              </Route>
+              <ProtectedRoute
+                exact
+                path='/'
+                loggedIn={loggedIn}
+                component={Main}
+                onEditProfile={handleEditProfileClick}
+                onAddPlace={handleAddPlaceClick}
+                onEditAvatar={handleEditAvatarClick}
+                onCardClick={handleCardClick}
+                onCardLike={handleCardLike}
+                onCardDelete={handleCardDelete}
+                cards={cards}
+              />
+            </Switch>
+            <Footer />
+          </>
+        )}
+        <EditProfilePopup
+          isOpen={isEditProfilePopupOpen}
+          onClose={closeAllPopups}
+          onUpdateUser={handleUpdateUser}
+          isLoading={isLoading}
+        />
+        <AddPlacePopup
+          isOpen={isAddPlacePopupOpen}
+          onClose={closeAllPopups}
+          onAddPlace={handleAddPlace}
+          isLoading={isLoading}
+        />
+        <ConfirmPopup
+          isOpen={isConfirmPopupOpen}
+          onClose={closeAllPopups}
+          onConfirmDelete={handleConfirm}
+          isLoading={isLoading}
+        />
+        <EditAvatarPopup
+          isOpen={isEditAvatarPopupOpen}
+          onClose={closeAllPopups}
+          onUpdateAvatar={handleUpdateAvatar}
+          isLoading={isLoading}
+        />
+        <ImagePopup image={selectedCard} onClose={closeAllPopups} />
+        <InfoTooltip
+          status={status}
+          isOpen={isInfoTooltipOpen}
+          onClose={closeAllPopups}
+        />
+      </div>
     </CurrentUserContext.Provider>
   );
 }

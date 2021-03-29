@@ -1,21 +1,3 @@
-@import url(../popup/__container/popup__container.css);
-@import url(../popup/__form/popup__form.css);
-@import url(../popup/__title/popup__title.css);
-@import url(../popup/__input/popup__input.css);
-@import url(../popup/__input/_place/popup__intup_place.css);
-@import url(../popup/__input/_link/popup__input_link.css);
-@import url(../popup/__input/_hobby/popup__input_hobby.css);
-@import url(../popup/__input/_name/popup__input_name.css);
-@import url(../popup/__input/_avatar/popup__input_avatar.css);
-@import url(../popup/__form/popup__form.css);
-@import url(../popup/__button-close/popup__button-close.css);
-@import url(../popup/__button-save/popup__button-save.css);
-@import url(../popup/__input-error/popup__input-error.css);
-@import url(../popup/__span/popup__span.css);
-@import url(../popup/__span/_active/popup__span_active.css);
-@import url(../popup/__button-save/_inactive/popup__button-save_inactive.css);
-@import url(../popup/__button-save/_confirm/popup__button-save_confirm.css);
-
 .popup {
   position: fixed;
   top: 0;

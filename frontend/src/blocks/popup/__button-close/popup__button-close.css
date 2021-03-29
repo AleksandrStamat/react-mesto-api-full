@@ -1,53 +1,28 @@
 .popup__button-close {
-  height: 40.7px;
-  width: 40.7px;
-  position: absolute;
-  top: -35px;
-  right: -39px;
-  background: rgba(0, 0, 0, 0);
+  background: transparent;
   border: none;
-  padding: 1px 1px;
-  transition: opacity 0.5s ease;
-  opacity: 1;
+  background-image: url(../../../images/header/close-icon.svg);
+  width: 45px;
+  height: 45px;
+  position: absolute;
+  top: -36px;
+  right: -36px;
+  background-repeat: no-repeat;
+  background-size: contain;
+  transition: all .4s, .4s ease;
 }
 
 .popup__button-close:hover {
-  cursor: pointer;
   opacity: 0.6;
+  transition: opacity 200ms linear;
+  cursor: pointer;
 }
 
-.popup__button-close::before {
-  content: "";
-  height: 40.7px;
-  position: absolute;
-  border-left: 4px solid #ffffff;
-  transform: rotate(45deg);
-  left: 17px;
-  top: -3px;
-}
-
-.popup__button-close::after {
-  content: "";
-  height: 40.7px;
-  position: absolute;
-  border-left: 4px solid #ffffff;
-  transform: rotate(-45deg);
-  left: 17px;
-  top: -3px;
-}
-@media screen and (max-width: 560px) {
+@media screen and (max-width: 480px) {
   .popup__button-close {
+    width: 35px;
+    height: 35px;
     top: -40px;
-    margin-left: auto;
-    margin-right: auto;
-    left: 0;
-    right: 0;
-  }
-
-  .popup__button-close::before {
-    height: 30px;
-  }
-  .popup__button-close::after {
-    height: 30px;
+    right: 42%;
   }
 }

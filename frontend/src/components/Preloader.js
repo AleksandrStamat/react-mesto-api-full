@@ -1,11 +1,10 @@
 import React from 'react';
 
 function Preloader(props) {
-  const { isSiteLoading } = props;
   return (
-    <div
-      className={isSiteLoading ? 'preloader' : 'preloader preloader_hidden'}
-    ></div>
+    <div className='preloader__position'>
+      <div className='preloader'></div>
+    </div>
   );
 }
 export default Preloader;

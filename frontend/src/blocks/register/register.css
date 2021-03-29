@@ -1,9 +1,3 @@
-@import url(../register/__heading/register__heading.css);
-@import url(../register/__form/register__form.css);
-@import url(../register/__input/register__input.css);
-@import url(../register/__submit-button/register__submit-button.css);
-@import url(../register/__link/register__link.css);
-
 .register {
   max-width: 358px;
   margin: 0 auto;
@@ -11,7 +5,7 @@
   flex-direction: column;
   align-items: center;
   padding-top: 60px;
-  padding-bottom: 80px;
+  padding-bottom: 50px;
   box-sizing: border-box;
 }
 
@@ -19,6 +13,6 @@
   .register {
     max-width: 260px;
     padding-top: 40px;
-    padding-bottom: 42px;
+    padding-bottom: 30px;
   }
 }

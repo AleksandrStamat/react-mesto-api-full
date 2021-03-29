@@ -1,16 +1,11 @@
-@import url(../login/__heading/login__heading.css);
-@import url(../login/__form/login__form.css);
-@import url(../login/__input/login__input.css);
-@import url(../login/__submit-button/login__submit-button.css);
-@import url(../login/__link/login__link.css);
 .login {
   max-width: 358px;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 60px;
-  padding-bottom: 80px;
+  padding-top: 40px;
+  padding-bottom: 40px;
   box-sizing: border-box;
 }
 
@@ -18,6 +13,6 @@
   .login {
     max-width: 260px;
     padding-top: 40px;
-    padding-bottom: 42px;
+    padding-bottom: 30px;
   }
 }
