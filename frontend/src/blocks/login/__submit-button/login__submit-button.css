@@ -22,7 +22,7 @@
 
 @media screen and (max-width: 424px) {
   .login__submit-button {
-    margin-top: 173px;
+    margin-top: 60px;
     font-size: 1rem;
     line-height: 1.1875rem;
   }

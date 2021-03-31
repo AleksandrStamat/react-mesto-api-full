@@ -11,15 +11,21 @@
   white-space: nowrap;
   overflow: hidden;
 }
-@media screen and (max-width: 900px) {
-.profile__hobby {
-  max-width: 201px;
-  padding-top: 14px;
-  font-family: Inter;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 14px;
-  line-height: 17px;
-  text-align: center;
+@media screen and (max-width: 920px) {
+  .profile__hobby {
+    text-align: center;
+  }
 }
+
+@media screen and (max-width: 767px) {
+  .profile__hobby {
+    max-width: 201px;
+    padding-top: 14px;
+    font-family: Inter;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 17px;
+    text-align: center;
+  }
 }

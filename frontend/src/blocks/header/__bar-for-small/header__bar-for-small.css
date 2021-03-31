@@ -1,5 +1,6 @@
 .header__bar-for-small {
 	display: none;
+
 }
 
 @media (max-width: 767px) {

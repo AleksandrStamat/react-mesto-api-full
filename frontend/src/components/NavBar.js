@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { Route, Switch, Link } from 'react-router-dom';
 import { CurrentUserContext } from '../contexts/CurrentUserContext';
 
-function HeaderBar(props) {
+function NavBar(props) {
   const currentUser = useContext(CurrentUserContext);
   return (
     <div className='header__bar-container'>
@@ -35,4 +35,4 @@ function HeaderBar(props) {
   );
 }
 
-export default HeaderBar;
+export default NavBar;

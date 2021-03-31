@@ -11,7 +11,7 @@
   white-space: nowrap;
   overflow: hidden;
 }
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 767px) {
 .profile__name {
   max-width: 201px;
   padding-right: 5px;

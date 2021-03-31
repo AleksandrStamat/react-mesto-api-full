@@ -1,6 +1,7 @@
 .profile {
   padding: 37px 0 48px;
-  width: calc(100% - 199px * 2);
+  width: calc(100% - 120px * 2);
+  max-width: 880px;
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
@@ -9,7 +10,7 @@
 
 @media (max-width: 1023px) {
   .profile {
-    width: calc(100% - 150px * 2);
+    width: calc(100% - 60px * 2);
   }
 }
 
@@ -17,12 +18,12 @@
   .profile {
     padding: 38.25px 0 36px;
     flex-direction: column;
-    width: calc(100% - 80px * 2);
+    width: calc(100% - 40px * 2);
   }
 }
 
-@media (max-width: 425px) {
+@media (max-width: 650px) {
   .profile {
-    width: calc(100% - 19px * 2);
+    width: 100%;
   }
 }

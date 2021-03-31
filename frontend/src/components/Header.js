@@ -2,7 +2,7 @@ import React from 'react';
 import logo from '../images/header/logo.svg';
 import burger from '../images/header/burger-icon.svg';
 import close from '../images/header/close-icon.svg';
-import HeaderBar from './HeaderBar';
+import NavBar from './NavBar';
 
 function Header(props) {
   const [burgerOpen, setBurgerOpen] = React.useState(false);
@@ -15,7 +15,7 @@ function Header(props) {
     <header className='header'>
       {burgerOpen && (
         <div className='header__bar-for-small'>
-          <HeaderBar loggedOut={props.loggedOut} email={props.email} />
+          <NavBar loggedOut={props.loggedOut} email={props.email} />
         </div>
       )}
       <div className='header__wrapper'>
@@ -38,7 +38,7 @@ function Header(props) {
           )}
         </div>
         <div className='header__bar-for-big'>
-          <HeaderBar loggedOut={props.loggedOut} />
+          <NavBar loggedOut={props.loggedOut} />
         </div>
       </div>
     </header>
