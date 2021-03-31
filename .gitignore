@@ -11,9 +11,6 @@ npm-debug.log*
 # Optional npm cache directory
 .npm
 
-# production
-/build
-
 # Optional REPL history
 .DS_Store
 .idea
