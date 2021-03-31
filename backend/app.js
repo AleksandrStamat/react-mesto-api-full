@@ -14,13 +14,13 @@ const { PORT = 3000 } = process.env;
 
 const app = express();
 
+app.use(cors({ origin: true }));
 const limiter = rateLimit({
   windowMs: 15 * 60 * 1000,
   max: 100,
   message: 'Пожалуйста, попробуйте позже',
 });
 app.use(limiter);
-app.use(cors());
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
