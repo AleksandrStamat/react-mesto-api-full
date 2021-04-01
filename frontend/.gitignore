@@ -5,6 +5,8 @@
 
 # Optional npm cache directory
 .npm
+#Prod
+/build
 
 # Optional REPL history
 .DS_Store
