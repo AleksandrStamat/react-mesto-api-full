@@ -9,7 +9,7 @@ const auth = require('./middlewares/auth');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
 const { login, createUser } = require('./controllers/users');
 const { validateUser, validateLogin } = require('./middlewares/validation');
-
+const NotFoundError = require('./errors/NotFoundError');
 const { PORT = 3000 } = process.env;
 
 const app = express();
@@ -47,11 +47,11 @@ app.post('/signup', validateUser, createUser);
 const usersRouter = require('./routes/users');
 const cardsRouter = require('./routes/card');
 
-app.use('/', auth, usersRouter);
-app.use('/', auth, cardsRouter);
+app.use('/users', auth, usersRouter);
+app.use('/cards', auth, cardsRouter);
 
-app.all('*', (req, res) => {
-  res.status(404).send({ message: 'Запрашиваемый ресурс не найден' });
+app.all('*', (req, res, next) => {
+  next(new NotFoundError({ message: 'Запрашиваемый ресурс не найден' }));
 });
 
 app.use(errorLogger);

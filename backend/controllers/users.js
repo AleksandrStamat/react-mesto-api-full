@@ -17,10 +17,11 @@ const getUsers = (req, res, next) => User.find({})
   })
   .catch(next);
 
-const getUser = (req, res, next) => User.findById(req.params.id)
+const getUser = (req, res, next) => 
+  User.findById(req.params._id)
   .then((user) => {
     if (!user) {
-      throw new BadRequesError({ message: 'Нет пользователя с таким id' });
+      throw new NotFoundError({ message: 'Нет пользователя с таким id' });
     }
     res.status(200).send({ data: user });
   })
