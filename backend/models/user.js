@@ -9,12 +9,14 @@ const userSchema = new mongoose.Schema({
     minlength: 2,
     maxlength: 30,
     required: true,
+    default: 'User',
   },
   about: {
     type: String,
     minlength: 2,
     maxlength: 30,
     required: true,
+    default: 'About',
   },
   avatar: {
     type: String,
@@ -26,6 +28,7 @@ const userSchema = new mongoose.Schema({
       },
       message: 'Введена неверная ссылка',
     },
+    default: 'https://i.gifer.com/fxWm.gif',
   },
   email: {
     type: String,

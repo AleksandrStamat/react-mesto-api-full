@@ -20,7 +20,7 @@ const getUsers = (req, res, next) => User.find({})
 const getUser = (req, res, next) => User.findById(req.params.id)
   .then((user) => {
     if (!user) {
-      throw new NotFoundError({ message: 'Нет пользователя с таким id' });
+      throw new BadRequesError({ message: 'Нет пользователя с таким id' });
     }
     res.status(200).send({ data: user });
   })

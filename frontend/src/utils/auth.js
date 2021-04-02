@@ -15,9 +15,6 @@ export const register = (email, password) => fetch(`${baseUrl}/signup`, {
   body: JSON.stringify({
     email,
     password,
-    name: 'User name',
-    about: 'User about',
-    avatar: 'https://i.gifer.com/GHD2.gif',
   }),
 }).then(errorCheck);
 

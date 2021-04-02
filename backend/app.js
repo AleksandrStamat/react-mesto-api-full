@@ -16,7 +16,7 @@ const app = express();
 
 app.use(cors({ origin: true }));
 const limiter = rateLimit({
-  windowMs: 15 * 60 * 1000,
+  windowMs: 5000,
   max: 100,
   message: 'Пожалуйста, попробуйте позже',
 });
@@ -46,11 +46,13 @@ app.post('/signup', validateUser, createUser);
 
 const usersRouter = require('./routes/users');
 const cardsRouter = require('./routes/card');
-const errorRouter = require('./routes/error');
 
 app.use('/', auth, usersRouter);
 app.use('/', auth, cardsRouter);
-app.use('/', errorRouter);
+
+app.all('*', (req, res) => {
+  res.status(404).send({ message: 'Запрашиваемый ресурс не найден' });
+});
 
 app.use(errorLogger);
 // обработчик celebrate для ошибок
