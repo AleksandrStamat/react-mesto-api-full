@@ -2,8 +2,10 @@
 
 Учебная проектная работа на курсе Яндекс Практикума "Веб-разработчик". Одностраничное приложение, с функциям регистрации/авторизации, редактирования профиля, добавления изображений в галерею. Фронтэнд/бэкенд.
 
-Домен проекта - "https://mesto.stamat.nomoredomains.club"
-Домен api - "https://api.mesto.stamat.nomoredomains.icu"
+Домен проекта - "https://mesto.stamat.nomoredomains.club".
+
+Домен api - "https://api.mesto.stamat.nomoredomains.icu".
+
 Публичный IP - "84.201.172.123"
 
 ## Примененные технологии
