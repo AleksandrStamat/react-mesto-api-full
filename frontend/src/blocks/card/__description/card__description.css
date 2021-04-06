@@ -1,0 +1,8 @@
+.card__description {
+  min-height: 80px;
+  width: 240px;
+  display: flex;
+  justify-content: space-between;
+  margin: 0;
+  padding: 0 20px;
+}

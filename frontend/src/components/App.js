@@ -1,5 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { Route, Switch, useHistory, withRouter } from 'react-router-dom';
+import {
+  Route,
+  Switch,
+  useHistory,
+  withRouter,
+  useLocation,
+} from 'react-router-dom';
 import '../index.css';
 import { CurrentUserContext } from '../contexts/CurrentUserContext';
 import { api } from '../utils/utils';
@@ -17,9 +23,12 @@ import Register from './Register.js';
 import InfoTooltip from './InfoTooltip';
 import ProtectedRoute from './ProtectedRoute.js';
 import * as auth from '../utils/auth.js';
+import MenuMobile from './MenuMobile';
+
 
 function App() {
   const history = useHistory();
+  const location = useLocation();
   const [isEditProfilePopupOpen, setEditProfilePopupOpen] = useState(false);
   const [isAddPlacePopupOpen, setAddPlacePopupOpen] = useState(false);
   const [isEditAvatarPopupOpen, setEditAvatarPopupOpen] = useState(false);
@@ -37,6 +46,11 @@ function App() {
     link: '',
     name: '',
   });
+  const [isShowMenu, setIsShowMenu] = React.useState('menu-mobile_type_close');
+  const [classHeaderMenu, setClassHeaderMenu] = React.useState(
+    'header__menu_type_closed'
+  );
+
   // Проверить токен
   useEffect(() => {
     const jwt = localStorage.getItem('jwt');
@@ -65,7 +79,7 @@ function App() {
         history.push('/');
       })
       .catch((err) => console.log(`Ошибка при загрузке данных: ${err}`))
-      .finally(() => setTimeout(() => setSiteLoading(false), 1000));
+      .finally(() => setTimeout(() => setSiteLoading(false), 500));
   }
   // Обновление данных профиля
   function handleUpdateUser(data) {
@@ -123,7 +137,6 @@ function App() {
       .catch((err) => console.log(`Ошибка при загрузке: ${err}`))
       .finally(() => setLoading(false));
   }
-
   // Кликнуть на удаление карточки
   function handleCardDelete(card) {
     setConfirmPopupOpen(true);
@@ -160,7 +173,7 @@ function App() {
 
   // Открыть увеличенное фото
   function handleCardClick({ link, name }) {
-    setSelectedCard({ isImageOpen: true, link, name });
+    setSelectedCard({ isImageOpen: true, link, name});
   }
 
   // Закрыть все попапы
@@ -216,76 +229,104 @@ function App() {
       });
   }
 
+  function showMenu() {
+    if (isShowMenu === 'menu-mobile_type_close') {
+      setIsShowMenu('menu-mobile_type_open');
+    } else {
+      setIsShowMenu('menu-mobile_type_close');
+    }
+
+    if (classHeaderMenu === 'header__menu_type_opened') {
+      setClassHeaderMenu('header__menu_type_closed');
+    } else {
+      setClassHeaderMenu('header__menu_type_opened');
+    }
+  }
+
   // закрытие по esc
-  const closePopupsByEsc = (e) => {
-    if (e.key === 'Escape') {
+  function handleEsc(evt) {
+    if (evt.key === 'Escape') {
       closeAllPopups();
     }
-  };
+  }
+
+  useEffect(() => {
+    window.addEventListener('keydown', handleEsc);
+
+    return () => {
+      window.removeEventListener('keydown', handleEsc);
+    };
+  });
 
   return (
-    <CurrentUserContext.Provider value={currentUser}>
-      <div className='page' onKeyUp={closePopupsByEsc}>
-        <Header loggedOut={handleLogout} loggedIn={loggedIn} />
+    <CurrentUserContext.Provider value={currentUser} >
+      {loggedIn && (
+        <MenuMobile loggedOut={handleLogout} isShowMenu={isShowMenu} />
+      )}
+      <Header
+        loggedIn={loggedIn}
+        locaction={location}
+        showMenu={showMenu}
+        classHeaderMenu={classHeaderMenu}
+        loggedOut={handleLogout}
+      />
+      <Switch>
         {isSiteLoading ? (
           <Preloader />
         ) : (
-          <>
-            <Switch>
-              <Route path='/signin'>
-                <Login handleLogin={handleLogin} />
-              </Route>
-              <Route path='/signup'>
-                <Register handleRegister={handleRegister} />
-              </Route>
-              <ProtectedRoute
-                exact
-                path='/'
-                loggedIn={loggedIn}
-                component={Main}
-                onEditProfile={handleEditProfileClick}
-                onAddPlace={handleAddPlaceClick}
-                onEditAvatar={handleEditAvatarClick}
-                onCardClick={handleCardClick}
-                onCardLike={handleCardLike}
-                onCardDelete={handleCardDelete}
-                cards={cards}
-              />
-            </Switch>
-            <Footer />
-          </>
+          <ProtectedRoute
+            exact
+            path='/'
+            loggedIn={loggedIn}
+            component={Main}
+            onEditProfile={handleEditProfileClick}
+            onAddPlace={handleAddPlaceClick}
+            onEditAvatar={handleEditAvatarClick}
+            onCardClick={handleCardClick}
+            onCardLike={handleCardLike}
+            onCardDelete={handleCardDelete}
+            cards={cards}
+          />
         )}
-        <EditProfilePopup
-          isOpen={isEditProfilePopupOpen}
-          onClose={closeAllPopups}
-          onUpdateUser={handleUpdateUser}
-          isLoading={isLoading}
-        />
-        <AddPlacePopup
-          isOpen={isAddPlacePopupOpen}
-          onClose={closeAllPopups}
-          onAddPlace={handleAddPlace}
-          isLoading={isLoading}
-        />
-        <ConfirmPopup
-          isOpen={isConfirmPopupOpen}
-          onClose={closeAllPopups}
-          onConfirmDelete={handleConfirm}
-          isLoading={isLoading}
-        />
-        <EditAvatarPopup
-          isOpen={isEditAvatarPopupOpen}
-          onClose={closeAllPopups}
-          onUpdateAvatar={handleUpdateAvatar}
-          isLoading={isLoading}
-        />
-        <ImagePopup image={selectedCard} onClose={closeAllPopups} />
-        <InfoTooltip
-          status={status}
-          isOpen={isInfoTooltipOpen}
-          onClose={closeAllPopups}
-        />
-      </div>
+        <Route path='/signin'>
+          <Login handleLogin={handleLogin} />
+        </Route>
+        <Route path='/signup'>
+          <Register handleRegister={handleRegister} />
+        </Route>
+      </Switch>
+      <Footer />
+
+      <EditProfilePopup
+        isOpen={isEditProfilePopupOpen}
+        onClose={closeAllPopups}
+        onUpdateUser={handleUpdateUser}
+        isLoading={isLoading}
+      />
+      <AddPlacePopup
+        isOpen={isAddPlacePopupOpen}
+        onClose={closeAllPopups}
+        onAddPlace={handleAddPlace}
+        isLoading={isLoading}
+      />
+      <ConfirmPopup
+        isOpen={isConfirmPopupOpen}
+        onClose={closeAllPopups}
+        onConfirmDelete={handleConfirm}
+        isLoading={isLoading}
+      />
+      <EditAvatarPopup
+        isOpen={isEditAvatarPopupOpen}
+        onClose={closeAllPopups}
+        onUpdateAvatar={handleUpdateAvatar}
+        isLoading={isLoading}
+      />
+      <ImagePopup image={selectedCard} onClose={closeAllPopups} />
+      <InfoTooltip
+        status={status}
+        isOpen={isInfoTooltipOpen}
+        onClose={closeAllPopups}
+      />
     </CurrentUserContext.Provider>
   );
 }

@@ -1,0 +1,19 @@
+.profile__button-edit {
+  width: 24px;
+  height: 24px;
+  border: 1px solid #fff;
+  box-sizing: border-box;
+  font-size: 0;
+  padding: 0;
+  margin: auto 0 9px;
+}
+
+@media screen and (max-width: 919px) {
+  .profile__button-edit {
+    margin-bottom: 6px;
+    width: 18px;
+    height: 18px;
+    margin-right: 0;
+    margin-left: 0;
+  }
+}

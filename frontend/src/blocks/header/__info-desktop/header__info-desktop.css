@@ -1,0 +1,10 @@
+.header__info-desktop {
+  font-size: 18px;
+  line-height: 22px;
+}
+
+@media screen and (max-width: 619px) {
+  .header__info-desktop {
+    display: none;
+  }
+}

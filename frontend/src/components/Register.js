@@ -37,7 +37,7 @@ function Register(props) {
           placeholder='Пароль'
         />
         <button
-          className='register__submit-button'
+          className='button register__submit-button'
           type='submit'
           onSubmit={handleSubmit}
         >

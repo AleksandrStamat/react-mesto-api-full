@@ -1,0 +1,13 @@
+.menu-mobile__position {
+  display: none;
+  font-size: 18px;
+  border-bottom: 1px solid #545454;
+}
+
+@media screen and (max-width: 619px) {
+  .menu-mobile__position {
+    max-width: 619px;
+    margin: 0 -20px;
+    display: flex;
+  }
+}

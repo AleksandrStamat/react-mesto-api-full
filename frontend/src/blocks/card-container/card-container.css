@@ -1,0 +1,17 @@
+.card-container {
+  list-style: none;
+  padding: 0;
+  padding-top: 48px;
+  display: grid;
+  margin: 0 auto;
+  grid-template-columns: repeat(auto-fill, 280px);
+  row-gap: 21.5px;
+  column-gap: 20px;
+  justify-content: center;
+}
+
+@media screen and (max-width: 919px) {
+  .card-container {
+    padding-top: 36px;
+  }
+}

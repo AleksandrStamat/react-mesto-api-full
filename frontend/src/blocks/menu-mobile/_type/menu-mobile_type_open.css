@@ -1,0 +1,9 @@
+@media screen and (max-width: 619px) {
+  .menu-mobile_type_open {
+    display: flex;
+    height: 90px;
+    padding: 24px;
+    opacity: 1;
+    transition: all 0s, .4s ease;
+  }
+}

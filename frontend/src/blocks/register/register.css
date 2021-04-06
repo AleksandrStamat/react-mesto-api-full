@@ -1,18 +1,22 @@
 .register {
-  max-width: 358px;
-  margin: 0 auto;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  padding-top: 60px;
-  padding-bottom: 40px;
-  box-sizing: border-box;
+  width: 360px;
+  padding: 40px 32px;
+  margin: auto;
+  position: relative;
 }
 
-@media screen and (max-width: 424px) {
+@media screen and (max-width: 619px) {
   .register {
-    max-width: 260px;
-    padding-top: 50px;
-    padding-bottom: 30px;
+    max-width: 280px;
+    padding: 20px;
   }
 }
+
+@media screen and (max-width: 375px) {
+  .register {
+    max-width: 260px;
+  }
+}
+

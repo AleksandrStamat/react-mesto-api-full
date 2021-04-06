@@ -37,7 +37,7 @@ function Login(props) {
           placeholder='Пароль'
         />
         <button
-          className='login__submit-button'
+          className='button login__submit-button'
           type='submit'
           onSubmit={handleSubmit}
         >

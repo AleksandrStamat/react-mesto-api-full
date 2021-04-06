@@ -1,47 +1,45 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import logo from '../images/header/logo.svg';
-import burger from '../images/header/burger-icon.svg';
-import close from '../images/header/close-icon.svg';
-import NavBar from './NavBar';
+import { CurrentUserContext } from '../contexts/CurrentUserContext';
+
 
 function Header(props) {
-  const [burgerOpen, setBurgerOpen] = React.useState(false);
-
-  function handleBurgerChange(e) {
-    setBurgerOpen(!burgerOpen);
+  const currentUser = useContext(CurrentUserContext);
+  // Открыть/закрыть email пользователя в мобильной версии
+  function openAuthInfo() {
+    props.showMenu('mobile_position');
   }
 
+  const { pathname } = useLocation();
+  const linkText = `${pathname === '/signin' ? 'Регистрация' : 'Войти'}`;
+  const linkPath = `${pathname === '/signin' ? '/signup' : '/signin'}`;
+
   return (
-    <header className='header'>
-      {burgerOpen && (
-        <div className='header__bar-for-small'>
-          <NavBar loggedOut={props.loggedOut} email={props.email} />
+
+      <header className='header__position'>
+        <div className='header'>
+          <img src={logo} alt='Логотип «Mesto Russia»' className='header__logo'/>
+          {props.loggedIn
+            ? (<>
+                <div className='header__info-desktop'>
+                  <span>{currentUser.email || ''}</span>
+                  <button className='button header__link' onClick={props.loggedOut}>Выйти</button>
+                </div>
+
+                <button
+                  className={`header__menu  ${props.classHeaderMenu}`}
+                  onClick={openAuthInfo}
+                >
+                  <span/>
+                </button>
+
+              </>
+            )
+            : (<Link to={linkPath} className="button header__link">{linkText}</Link>)
+          }
         </div>
-      )}
-      <div className='header__wrapper'>
-        <img className='header__logo' src={logo} alt='Место-логотип' />
-        <div className='header__burger'>
-          {burgerOpen ? (
-            <img
-              className='header__burger-close'
-              src={close}
-              alt='закрыть'
-              onClick={handleBurgerChange}
-            />
-          ) : (
-            <img
-              className='header__burger-icon'
-              src={burger}
-              alt='бургер'
-              onClick={handleBurgerChange}
-            />
-          )}
-        </div>
-        <div className='header__bar-for-big'>
-          <NavBar loggedOut={props.loggedOut} />
-        </div>
-      </div>
-    </header>
+      </header>
   );
 }
 

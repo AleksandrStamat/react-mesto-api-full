@@ -1,29 +1,24 @@
+@import url(./__position/profile__position.css);
+@import url(__avatar-image/profile__avatar-image.css);
+@import url(__avatar-edit/profile__avatar-edit.css);
+@import url(./__user-info/profile__user-info.css);
+@import url(./__name-edit-position/profile__name-edit-position.css);
+@import url(./__user-info-name/profile__user-info-name.css);
+@import url(./__user-info-about/profile__user-info-about.css);
+@import url(./__button-add-vector/profile__button-add-vector.css);
+@import url(./__button-add/profile__button-add.css);
+@import url(./__button-edit-vector/profile__button-edit-vector.css);
+@import url(./__button-edit/profile__button-edit.css);
+
 .profile {
-  padding: 37px 0 48px;
-  width: calc(100% - 120px * 2);
-  max-width: 880px;
-  margin: 0 auto;
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  padding-top: 40px;
 }
 
-@media (max-width: 1023px) {
+@media screen and (max-width: 919px) {
   .profile {
-    width: calc(100% - 60px * 2);
-  }
-}
-
-@media (max-width: 920px) {
-  .profile {
-    padding: 38.25px 0 36px;
-    flex-direction: column;
-    width: calc(100% - 40px * 2);
-  }
-}
-
-@media (max-width: 650px) {
-  .profile {
-    width: 100%;
+    display: block;
+    padding-top: 42px;
   }
 }
