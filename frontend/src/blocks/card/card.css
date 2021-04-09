@@ -5,4 +5,9 @@
   border-radius: 10px;
   overflow: hidden;
   position: relative;
+  transition: all linear .2s;
+}
+
+.card:hover {
+  transform: scale(1.02);
 }
