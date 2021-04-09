@@ -28,18 +28,15 @@
 
 @import url('./blocks/card-container/card-container.css');
 @import url('./blocks/card/card.css');
-/* @import url('./blocks/element/element.css');
-@import url('./blocks/element/__foto/element__foto.css');
-@import url('./blocks/element/__like-content/element__like-content.css');
-@import url('./blocks/element/__like-count/element__like-count.css');
-@import url('./blocks/element/__like/element__like.css');
-@import url('./blocks/element/__like/_active/element__like_active.css');
-@import url('./blocks/element/__position/element__position.css');
-@import url('./blocks/element/__text/element__text.css');
-@import url('./blocks/element/__trash/element__trash.css');
-@import url('./blocks/element/__trash/_dislpay/element__trash_display.css');
-
-@import url('./blocks/elements/elements.css'); */
+@import url('./blocks/card/__button-delete/card__button-delete.css');
+@import url('./blocks/card/__button-delete/_invisible/card__button-delete_invisible.css');
+@import url('./blocks/card/__button-like/card__button-like.css');
+@import url('./blocks/card/__button-like/_solid/card__button-like_solid.css');
+@import url('./blocks/card/__count-likes/card__count-likes.css');
+@import url('./blocks/card/__description/card__description.css');
+@import url('./blocks/card/__image/card__image.css');
+@import url('./blocks/card/__likes-container/card__likes-container.css');
+@import url('./blocks/card/__name/card__name.css');
 
 @import url('./blocks/footer/footer.css');
 @import url('./blocks/footer/__copyright/footer__copyright.css');
