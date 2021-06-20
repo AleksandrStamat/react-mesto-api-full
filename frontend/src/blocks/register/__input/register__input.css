@@ -1,4 +1,5 @@
 .register__input {
+  outline: 0;
   border: 0;
   border-bottom: 2px solid #ccc;
   padding: 0;
@@ -16,7 +17,7 @@
 }
 
 .register__input::placeholder {
-  color: #89ecff;
+  color: #fff;
   font-family: "Inter", Arial, sans-serif;
   font-style: normal;
   font-weight: normal;
